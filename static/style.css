@@ -1,0 +1,45 @@
+body {
+    font-family: sans-serif;
+    background-color: #F4F4F4 !important;
+    margin: 0;
+}
+
+nav {
+    background-color: #001930 !important;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white !important;
+}
+
+nav h1 {
+    color: white !important;
+    margin: 0;
+}
+
+.nav-links a {
+    color: white !important;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.container {
+    padding: 20px;
+}
+
+.station-card {
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-left: 10px solid #001930;
+}
+
+.accent-button {
+    background-color: #FBB040;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auckland Rail Explorer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <nav>
+        <h1>Auckland Rail Explorer</h1>
+        <div class="nav-links">
+            <a href="/">HOME</a>
+            <a href="#">STATION</a>
+            <a href="#">ABOUT</a>
+        </div>
+    </nav>
+
+    <div class="container" style="display: flex; gap: 40px; align-items: flex-start;">
+        
+        <aside style="flex: 1; max-width: 280px; background: #FFFFFF; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+            <h3 style="margin-top: 0; font-size: 22px;">FILTER</h3>
+            <label for="line-select" style="display: block; margin-bottom: 10px; font-weight: bold;">SELECT A LINE...</label>
+            <select id="line-select" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px;">
+                <option value="">All Lines</option>
+                <option value="eastern">Eastern Line</option>
+                <option value="southern">Southern Line</option>
+                <option value="western">Western Line</option>
+                <option value="onehunga">Onehunga Line</option>
+            </select>
+        </aside>
+
+        <main style="flex: 3;">
+            <div class="station-card">
+                <div class="station-name">BRITOMART</div>
+                <div class="line-name">Eastern Line</div>
+                <div class="details">
+                    ELEVATOR: YES <br>
+                    PARKING: NO <br>
+                    DETAILS: Major transport hub in Auckland CBD.
+                </div>
+                <div style="margin-top: 20px;">
+                    <button class="accent-button">VIEW DETAILS</button>
+                </div>
+            </div>
+
+            <div class="station-card">
+                <div class="station-name">NEWMARKET</div>
+                <div class="line-name">Western / Southern Line</div>
+                <div class="details">
+                    ELEVATOR: YES <br>
+                    PARKING: NO <br>
+                    DETAILS: Key junction for south and west bound trains.
+                </div>
+                <div style="margin-top: 20px;">
+                    <button class="accent-button">VIEW DETAILS</button>
+                </div>
+            </div>
+        </main>
+
+    </div>
+
+</body>
+</html>
