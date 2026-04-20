@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import sqlite3
 
 app = Flask(__name__)
@@ -10,13 +10,22 @@ def get_db_connection():
 
 @app.route('/')
 def index():
+    line_id = request.args.get('line')
     conn = get_db_connection()
+    
     query = '''
-        SELECT stations.station_name, stations.description, lines.line_name, lines.color_code
-        FROM stations
-        JOIN lines ON stations.line_id = lines.line_id
+        SELECT s.*, l.line_name, l.color_code, f.has_elevator, f.has_parking
+        FROM stations s
+        JOIN lines l ON s.line_id = l.line_id
+        LEFT JOIN facilities f ON s.station_id = f.station_id
     '''
-    stations = conn.execute(query).fetchall()
+    
+    if line_id and line_id.strip():
+        query += ' WHERE s.line_id = ?'
+        stations = conn.execute(query, (line_id,)).fetchall()
+    else:
+        stations = conn.execute(query).fetchall()
+        
     conn.close()
     return render_template('index.html', stations=stations)
 
