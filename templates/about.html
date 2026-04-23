@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Auckland Rail Explorer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            margin: 0;
+            padding-top: 90px;
+            background-color: #f4f7f6;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 70px;
+            z-index: 1000;
+            background-color: #001529;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px;
+        }
+
+        nav h1 {
+            color: white;
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 30px;
+            font-weight: normal;
+        }
+
+        .about-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: calc(100vh - 150px);
+            padding: 20px;
+        }
+
+        .about-box {
+            max-width: 800px;
+            background: #FFFFFF;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .about-box h2 {
+            font-size: 32px;
+            margin-top: 0;
+            color: #001529;
+        }
+
+        .about-box p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <h1>Auckland Rail Explorer</h1>
+        <div class="nav-links">
+            <a href="/">HOME</a>
+            <a href="/stations">STATIONS</a>
+            <a href="/about">ABOUT</a>
+        </div>
+    </nav>
+
+    <div class="about-container">
+        <div class="about-box">
+            <h2>About This Project</h2>
+            <p>
+                Auckland Rail Explorer is designed to help commuters and visitors navigate the Auckland passenger rail network. 
+                Whether you are traveling on the Eastern, Western, Southern, or Onehunga lines, this tool provides essential 
+                information about station facilities including elevator access and parking availability.
+            </p>
+            <p>
+                Our mission is to make public transport more accessible by providing clear, concise, and up-to-date 
+                information for all train stations across the city.
+            </p>
+        </div>
+    </div>
+
+</body>
+</html>

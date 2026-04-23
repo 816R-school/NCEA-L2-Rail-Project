@@ -33,5 +33,9 @@ def stations():
     conn.close()
     return render_template('stations.html', stations=stations_data)
 
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
