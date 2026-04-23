@@ -68,13 +68,16 @@
 <body>
 
     <nav>
-        <h1>Auckland Rail Explorer</h1>
-        <div class="nav-links">
-            <a href="/">HOME</a>
-            <a href="/stations">STATIONS</a>
-            <a href="/about">ABOUT</a>
-        </div>
-    </nav>
+    <div style="display: flex; align-items: center; gap: 15px;">
+        <img src="{{ url_for('static', filename='images/trainlogo.png') }}" alt="Logo" style="height: 40px; width: auto;">
+        <h1 style="color: white; margin: 0; font-size: 32px;">Auckland Rail Explorer</h1>
+    </div>
+    <div class="nav-links">
+        <a href="/" style="color: white; text-decoration: none; margin-left: 30px;">HOME</a>
+        <a href="/stations" style="color: white; text-decoration: none; margin-left: 30px;">STATIONS</a>
+        <a href="/about" style="color: white; text-decoration: none; margin-left: 30px;">ABOUT</a>
+    </div>
+</nav>
 
     <div class="hero-container">
         <h1 class="hero-title">Auckland Rail Explorer</h1>

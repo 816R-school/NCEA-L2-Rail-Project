@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ station['station_name'] }} - Details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body { margin: 0; padding-top: 90px; background-color: #f4f7f6; font-family: sans-serif; }
+        nav { position: fixed; top: 0; left: 0; right: 0; height: 70px; z-index: 1000; background-color: #001529; display: flex; justify-content: space-between; align-items: center; padding: 0 40px; }
+        nav h1 { color: white; margin: 0; font-size: 32px; }
+        .nav-links a { color: white; text-decoration: none; margin-left: 30px; }
+        
+        .details-container { max-width: 900px; margin: 0 auto; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); border-top: 15px solid {{ station['color_code'] }}; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #001529; text-decoration: none; font-weight: bold; }
+        h2 { font-size: 48px; margin: 10px 0; }
+        .line-badge { display: inline-block; padding: 5px 15px; background: {{ station['color_code'] }}; color: white; border-radius: 20px; font-weight: bold; margin-bottom: 30px; }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 30px; border-top: 1px solid #eee; padding-top: 30px; }
+        .info-item h4 { margin: 0; color: #666; text-transform: uppercase; font-size: 14px; }
+        .info-item p { margin: 5px 0; font-size: 20px; font-weight: bold; }
+        .desc-section { margin-top: 30px; line-height: 1.6; font-size: 18px; color: #333; }
+    </style>
+</head>
+<body>
+
+    <nav>
+    <div style="display: flex; align-items: center; gap: 15px;">
+        <img src="{{ url_for('static', filename='images/trainlogo.png') }}" alt="Logo" style="height: 40px; width: auto;">
+        <h1 style="color: white; margin: 0; font-size: 32px;">Auckland Rail Explorer</h1>
+    </div>
+    <div class="nav-links">
+        <a href="/" style="color: white; text-decoration: none; margin-left: 30px;">HOME</a>
+        <a href="/stations" style="color: white; text-decoration: none; margin-left: 30px;">STATIONS</a>
+        <a href="/about" style="color: white; text-decoration: none; margin-left: 30px;">ABOUT</a>
+    </div>
+</nav>
+
+    <div style="padding: 40px;">
+        <a href="/stations" class="back-link">← BACK TO STATIONS</a>
+        
+        <div class="details-container">
+            <span class="line-badge">{{ station['line_name'] }}</span>
+            <h2>{{ station['station_name']|upper }}</h2>
+            
+            <div class="desc-section">
+                {{ station['description'] }}
+            </div>
+
+            <div class="info-grid">
+                <div class="info-item">
+                    <h4>Elevator Access</h4>
+                    <p>{{ 'Available' if station['has_elevator'] == 1 else 'Not Available' }}</p>
+                </div>
+                <div class="info-item">
+                    <h4>Parking (Park & Ride)</h4>
+                    <p>{{ 'Available' if station['has_parking'] == 1 else 'Not Available' }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
