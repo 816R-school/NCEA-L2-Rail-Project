@@ -9,7 +9,11 @@ def get_db_connection():
     return conn
 
 @app.route('/')
-def index():
+def home():
+    return render_template('home.html')
+
+@app.route('/stations')
+def stations():
     line_id = request.args.get('line')
     conn = get_db_connection()
     
@@ -22,12 +26,12 @@ def index():
     
     if line_id and line_id.strip():
         query += ' WHERE s.line_id = ?'
-        stations = conn.execute(query, (line_id,)).fetchall()
+        stations_data = conn.execute(query, (line_id,)).fetchall()
     else:
-        stations = conn.execute(query).fetchall()
+        stations_data = conn.execute(query).fetchall()
         
     conn.close()
-    return render_template('index.html', stations=stations)
+    return render_template('stations.html', stations=stations_data)
 
 if __name__ == '__main__':
     app.run(debug=True)

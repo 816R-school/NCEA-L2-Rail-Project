@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Auckland Rail Explorer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            margin: 0;
+            padding-top: 70px; 
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 70px;
+            z-index: 1000;
+            background-color: #001529;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px;
+        }
+
+        .hero-container {
+            height: calc(100vh - 70px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-color: #FFFFFF;
+        }
+
+        .hero-title {
+            font-size: 80px;
+            font-weight: 500;
+            margin: 0;
+            color: #000;
+        }
+
+        .hero-subtitle {
+            font-size: 32px;
+            color: #000;
+            margin: 10px 0 40px 0;
+        }
+
+        .start-button {
+            padding: 15px 40px;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            background-color: #001529;
+            border: none;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .start-button:hover {
+            background-color: #003366;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <h1 style="color: white; margin: 0;">Auckland Rail Explorer</h1>
+        <div class="nav-links">
+            <a href="/" style="color: white; text-decoration: none; margin-left: 30px;">HOME</a>
+            <a href="/stations" style="color: white; text-decoration: none; margin-left: 30px;">STATIONS</a>
+            <a href="#" style="color: white; text-decoration: none; margin-left: 30px;">ABOUT</a>
+        </div>
+    </nav>
+
+    <div class="hero-container">
+        <h1 class="hero-title">Auckland Rail Explorer</h1>
+        <p class="hero-subtitle">A simple tool to help you guide yourself</p>
+        <a href="/stations" class="start-button">START</a>
+    </div>
+
+</body>
+</html>

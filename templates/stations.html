@@ -3,8 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auckland Rail Explorer</title>
+    <title>Stations - Auckland Rail Explorer</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            margin: 0;
+            padding-top: 90px;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 70px;
+            z-index: 1000;
+            background-color: #001529;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px;
+        }
+
+        nav h1 {
+            color: white;
+            margin: 0;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 30px;
+            font-weight: normal;
+        }
+
+        .container {
+            display: flex; 
+            gap: 40px; 
+            align-items: flex-start; 
+            padding: 20px;
+        }
+    </style>
 </head>
 <body>
 
@@ -12,16 +51,16 @@
         <h1>Auckland Rail Explorer</h1>
         <div class="nav-links">
             <a href="/">HOME</a>
-            <a href="#">STATIONS</a>
+            <a href="/stations">STATIONS</a>
             <a href="#">ABOUT</a>
         </div>
     </nav>
 
-    <div class="container" style="display: flex; gap: 40px; align-items: flex-start; padding: 20px;">
+    <div class="container">
         
         <aside style="flex: 1; max-width: 280px; background: #FFFFFF; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
             <h3 style="margin-top: 0; font-size: 22px;">FILTER</h3>
-            <form action="/" method="GET">
+            <form action="/stations" method="GET">
                 <label style="display: block; margin-bottom: 10px; font-weight: bold;">SELECT A LINE...</label>
                 <select name="line" onchange="this.form.submit()" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px;">
                     <option value="" {% if not request.args.get('line') %}selected{% endif %}>All Lines</option>
